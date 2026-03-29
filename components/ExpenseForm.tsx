@@ -12,6 +12,7 @@ const ExpenseForm = () => {
         e.preventDefault();
         try {
             const res = await fetch("/api/expenses", {
+                cache: 'no-store',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

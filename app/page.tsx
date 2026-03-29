@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import ExpenseCard from "@/components/ExpenseCard";
 import ExpenseForm from "@/components/ExpenseForm";
 import connectDb from "@/lib/db";

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 
 const ExpenseForm = () => {
     const router = useRouter()
+    const [loading , setLoading] = useState(false)
 
     const [name, setName] = useState("")
     const [amount, setAmount] = useState("")
@@ -12,6 +13,9 @@ const ExpenseForm = () => {
 
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
+        setLoading(true)
+        
+
         try {
             const res = await fetch("/api/expenses", {
                 cache: 'no-store',
@@ -29,6 +33,8 @@ const ExpenseForm = () => {
 
         } catch (error) {
             console.log(error)
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -48,7 +54,7 @@ const ExpenseForm = () => {
                     <option value="clothes">Clothes</option>
                 </select>
 
-                <button className="border px-4 py-2 mt-4 font-bold bg-gray-300 text-black shadow-lg shadow-gray-500/50 hover:bg-gray-400 rounded-xl" type="submit">Add Expense</button>
+                <button disabled={loading} className="border px-4 py-2 mt-4 font-bold bg-gray-300 text-black shadow-lg shadow-gray-500/50 hover:bg-gray-400 rounded-xl" type="submit">{loading ? "Adding...": "Add Expense"}</button>
             </form>
 
         </div>

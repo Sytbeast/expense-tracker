@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 
 interface props {
@@ -10,9 +10,11 @@ interface props {
 }
 
 export default function ExpenseCard({ name, amount, category, id }: props) {
+    const [loading , setLoading] = useState(false)
     const router = useRouter()
 
     const handleDelete = async () => {
+        setLoading(true)
         try {
             const res = await fetch("/api/expenses", {
                 method: "DELETE",
@@ -25,7 +27,10 @@ export default function ExpenseCard({ name, amount, category, id }: props) {
 
         } catch (error) {
             console.log(error)
+        }finally {
+            setLoading(false)
         }
+
     }
 
 
@@ -34,7 +39,7 @@ export default function ExpenseCard({ name, amount, category, id }: props) {
             <p><span className='text-gray-400 font-semibold'>Expense Name:</span>{name}</p>
             <p><span className='text-gray-400 font-semibold'>Amount:</span>{amount}</p>
             <p><span className='text-gray-400 font-semibold'>Category:</span>{category}</p>
-            <button onClick={handleDelete} className='border shadow-lg shadow-red-600/50 bg-red-600 text-white font-bold border-red-600 px-4 py-2 rounded hover:bg-red-700 '>Delete</button>
+            <button onClick={handleDelete} disabled={loading} className='border shadow-lg shadow-red-600/50 bg-red-600 text-white font-bold border-red-600 px-4 py-2 rounded hover:bg-red-700 '>{loading? "Deleting...":"Delete"}</button>
         </div>
     )
 }

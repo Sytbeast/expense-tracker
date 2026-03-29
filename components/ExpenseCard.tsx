@@ -30,11 +30,11 @@ export default function ExpenseCard({ name, amount, category, id }: props) {
 
 
     return (
-        <div className="border border-gray-200 p-4 flex flex-col gap-2 rounded-xl shadow-xl shadow-red-300/50 mt-10">
+        <div className="border border-gray-200 p-4 flex flex-col gap-2 rounded-xl shadow-xl mt-10">
             <p><span className='text-gray-400 font-semibold'>Expense Name:</span>{name}</p>
             <p><span className='text-gray-400 font-semibold'>Amount:</span>{amount}</p>
             <p><span className='text-gray-400 font-semibold'>Category:</span>{category}</p>
-            <button onClick={handleDelete} className='border bg-red-600 text-white font-bold border-red-600 px-4 py-2 rounded hover:bg-red-700 '>Delete</button>
+            <button onClick={handleDelete} className='border shadow-lg shadow-red-600/50 bg-red-600 text-white font-bold border-red-600 px-4 py-2 rounded hover:bg-red-700 '>Delete</button>
         </div>
     )
 }

@@ -13,7 +13,6 @@ export default function ExpenseCard({ name, amount, category, id }: props) {
     const handleDelete = async () => {
         try {
             const res = await fetch("/api/expenses", {
-                cache: 'no-store',
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import { useRouter } from 'next/navigation';
 
 interface props {
     name: string;
@@ -9,6 +10,7 @@ interface props {
 }
 
 export default function ExpenseCard({ name, amount, category, id }: props) {
+    const router = useRouter()
 
     const handleDelete = async () => {
         try {
@@ -19,7 +21,7 @@ export default function ExpenseCard({ name, amount, category, id }: props) {
                 },
                 body: JSON.stringify({ id })
             })
-            window.location.reload() 
+            router.refresh()
 
         } catch (error) {
             console.log(error)

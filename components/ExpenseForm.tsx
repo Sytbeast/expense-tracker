@@ -48,7 +48,7 @@ const ExpenseForm = () => {
                     <option value="clothes">Clothes</option>
                 </select>
 
-                <button className="border px-4 py-2 mt-4 font-bold bg-gray-300 text-black rounded-xl" type="submit">Add Expense</button>
+                <button className="border px-4 py-2 mt-4 font-bold bg-gray-300 text-black shadow-lg shadow-gray-500/50 hover:bg-gray-400 rounded-xl" type="submit">Add Expense</button>
             </form>
 
         </div>

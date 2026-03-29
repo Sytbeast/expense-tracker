@@ -22,7 +22,7 @@ const ExpenseForm = () => {
             setName("")
             setAmount("")
             setCategory("")
-            import { useRouter } from 'next/navigation';
+            window.location.reload() 
 
 
 

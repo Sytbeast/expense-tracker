@@ -37,7 +37,6 @@ const ExpenseForm = () => {
 
             setName("")
             setAmount("")
-            setCategory("")
             router.refresh()
 
         } catch (error) {

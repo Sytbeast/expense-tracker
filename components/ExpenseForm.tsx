@@ -1,10 +1,8 @@
 "use client"
 import React from "react"
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 
 const ExpenseForm = () => {
-    const router = useRouter()
 
     const [name, setName] = useState("")
     const [amount, setAmount] = useState("")
@@ -24,7 +22,8 @@ const ExpenseForm = () => {
             setName("")
             setAmount("")
             setCategory("")
-            router.refresh()
+            import { useRouter } from 'next/navigation';
+
 
 
         } catch (error) {
